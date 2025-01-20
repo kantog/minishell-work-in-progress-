@@ -43,7 +43,7 @@ all: $(LIBFT) obj $(NAME)
 $(LIBFT):
 	@make -s -C src/libft 	
 
-$(NAME): $(OBJECTS) 
+$(NAME): $(OBJECTS) | $(LIBFT)
 	$(CC) $(CFLAGS) $(DEBUG_FLAGS) -o $(NAME) $(OBJECTS) $(INCFLAGS)
 	@echo "\033[33mMaking compile_commands.json...\033[0m"
 	@find . -type f -name "compile_commands.json" -delete
